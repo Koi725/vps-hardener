@@ -12,31 +12,29 @@ curl -sL https://raw.githubusercontent.com/Koi725/vps-hardener/main/harden.sh | 
 
 ## What It Does
 
-| Step | Action                | Why It Matters                             |
-| ---- | --------------------- | ------------------------------------------ |
-| 1    | System updates        | Patches known vulnerabilities              |
-| 2    | Essential packages    | Installs security tools                    |
-| 3    | Non-root user         | Eliminates root login attack surface       |
-| 4    | SSH hardening         | Custom port, key-only auth, rate limits    |
-| 5    | UFW firewall          | Blocks everything except what you need     |
-| 6    | Fail2ban              | Auto-bans brute force attempts             |
-| 7    | Auto security updates | Daily checks, no manual patching           |
-| 8    | Kernel hardening      | SYN flood protection, ASLR, ICMP hardening |
-| 9    | Disable junk services | Removes avahi, cups, bluetooth, etc.       |
-| 10   | Audit logging         | Tracks changes to critical system files    |
+| Step | Action | Why It Matters |
+|------|--------|----------------|
+| 1 | System updates | Patches known vulnerabilities |
+| 2 | Essential packages | Installs security tools |
+| 3 | Non-root user | Eliminates root login attack surface |
+| 4 | SSH hardening | Custom port, key-only auth, rate limits |
+| 5 | UFW firewall | Blocks everything except what you need |
+| 6 | Fail2ban | Auto-bans brute force attempts |
+| 7 | Auto security updates | Daily checks, no manual patching |
+| 8 | Kernel hardening | SYN flood protection, ASLR, ICMP hardening |
+| 9 | Disable junk services | Removes avahi, cups, bluetooth, etc. |
+| 10 | Audit logging | Tracks changes to critical system files |
 
 ---
 
 ## Quick Start
 
 **Option 1: One-liner (for the brave)**
-
 ```bash
 curl -sL https://raw.githubusercontent.com/Koi725/vps-hardener/main/harden.sh | sudo bash
 ```
 
 **Option 2: Clone and customize**
-
 ```bash
 git clone https://github.com/Koi725/vps-hardener.git
 cd vps-hardener
@@ -44,7 +42,6 @@ sudo bash harden.sh --port=2222 --user=deployer
 ```
 
 **Option 3: Dry run first (recommended)**
-
 ```bash
 sudo bash harden.sh --dry-run
 ```
@@ -65,7 +62,6 @@ Options:
 ```
 
 You can also set defaults via environment variables:
-
 ```bash
 export VPS_SSH_PORT=2200
 export VPS_USER=myuser
@@ -85,7 +81,6 @@ ssh -p 2222 deployer@your-server-ip
 If it works, you're good. If not, use your current session to fix the config.
 
 **What changed:**
-
 - SSH now runs on port `2222` (configurable)
 - Root login is disabled
 - Password auth is disabled (key-only)
@@ -121,13 +116,13 @@ This tool handles **OS-level hardening**. Your application security is your resp
 
 ## Compatibility
 
-| OS               | Status          |
-| ---------------- | --------------- |
-| Ubuntu 22.04 LTS | ✅ Tested        |
-| Ubuntu 24.04 LTS | ✅ Tested        |
-| Debian 11        | ✅ Tested        |
-| Debian 12        | ✅ Tested        |
-| CentOS/RHEL      | ❌ Not supported |
+| OS | Status |
+|----|--------|
+| Ubuntu 22.04 LTS | ✅ Tested |
+| Ubuntu 24.04 LTS | ✅ Tested |
+| Debian 11 | ✅ Tested |
+| Debian 12 | ✅ Tested |
+| CentOS/RHEL | ❌ Not supported |
 
 ---
 
